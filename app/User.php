@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Coin;
+use App\Models\Wallet;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -31,5 +32,10 @@ class User extends Authenticatable
     public function coins()
     {
         return $this->hasMany(Coin::class);
+    }
+
+    public function wallets()
+    {
+        return $this->hasMany(Wallet::class)->with('coin');
     }
 }

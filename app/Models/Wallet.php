@@ -5,15 +5,15 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Coin extends Model
+class Wallet extends Model
 {
     public function user()
     {
     	return $this->belongsTo(User::class);
     }
 
-    public function wallets()
+    public function coin()
     {
-    	return $this->hasMany(Wallet::class);
+    	return $this->belongsTo(Coin::class);
     }
 }
