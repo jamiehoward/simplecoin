@@ -4,9 +4,10 @@
 @section('content')
 
 <div class="container">
-	<h1>Your coins</h1>
+	<h1>Your coins <a class="btn btn-primary" href="/coins/create">&plus; Create new coin</a></h1>
 
 	<div class="col-lg-12">
+
 		<ul class="list-unstyled">
 		@forelse (\Auth::user()->coins as $coin)
 			<li>{{ $coin->name }} <small>({{ $coin->abbreviation }})</small></li>

@@ -24,7 +24,7 @@ class CoinController extends Controller
      */
     public function create()
     {
-        //
+        return view('coins.create');
     }
 
     /**
