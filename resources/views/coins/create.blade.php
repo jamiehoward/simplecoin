@@ -15,8 +15,10 @@
 
 			<div class="form-group">
 				<label class="form-label" for="name">Abbreviaton</label>
-				<input type="text" maxlength="4" name="name" class="form-control" placeholer="e.g. ETH" />
+				<input type="text" maxlength="4" name="abbreviation" class="form-control" placeholer="e.g. ETH" />
 			</div>
+
+			{{csrf_field()}}
 
 			<div class="form-group">
 				<input class="btn btn-primary" type="submit" value="Save" />

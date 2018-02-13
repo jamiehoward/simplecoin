@@ -35,7 +35,18 @@ class CoinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'abbreviation' => 'required|max:5',
+        ]);
+
+        $coin = new Coin;
+        $coin->name = $request->name;
+        $coin->abbreviation = strtoupper($request->abbreviation);
+
+        \Auth::user()->coins()->save($coin);
+
+        return redirect('/coins')->with('success');
     }
 
     /**
