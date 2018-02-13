@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coin;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 
-class WalletController extends Controller
+class CoinWalletController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class WalletController extends Controller
      */
     public function create()
     {
-        //
+        return view('coins.wallets.create');
     }
 
     /**
@@ -33,9 +34,15 @@ class WalletController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Coin $coin, Request $request)
     {
-        //
+        $wallet = new Wallet;
+        $wallet->hash = md5(str_random(32));
+        $wallet->coin_id = $coin->id;
+
+        \Auth::user()->wallets()->save($wallet);
+
+        return redirect('/coins/' . $coin->id);
     }
 
     /**

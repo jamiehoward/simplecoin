@@ -23,3 +23,5 @@ Route::get('/home', function() {
 });
 
 Route::resource('coins', 'CoinController');
+
+Route::post('/coins/{coin}/wallets', 'CoinWalletController@store');

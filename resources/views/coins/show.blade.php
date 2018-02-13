@@ -6,7 +6,12 @@
 <div class="container">
 	<h1>{{$coin->name}} <small>({{ $coin->abbreviation }})</small></h1>
 
-	<h3>Your wallets</h3>
+	<h3>Your wallets 
+		<form method="POST" action="/coins/{{$coin->id}}/wallets">
+			{{csrf_field()}}
+			<input type="submit" class="btn btn-primary" value="Create new wallet"/>
+		</form>
+	</h3>
 
 	<div class="col-lg-12">
 		<ul class="list-unstyled">
