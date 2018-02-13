@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Coin;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function coins()
+    {
+        return $this->hasMany(Coin::class);
+    }
 }
