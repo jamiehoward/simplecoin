@@ -57,7 +57,7 @@ class CoinController extends Controller
      */
     public function show(Coin $coin)
     {
-        //
+        return view('coins.show', ['coin' => $coin]);
     }
 
     /**
