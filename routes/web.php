@@ -22,6 +22,7 @@ Route::get('/home', function() {
 	return redirect('/coins');
 });
 
-Route::resource('coins', 'CoinController');
-
-Route::post('/coins/{coin}/wallets', 'CoinWalletController@store');
+Route::group(['middleware' => 'auth'], function() {
+	Route::resource('coins', 'CoinController');
+	Route::post('/coins/{coin}/wallets', 'CoinWalletController@store');
+});
